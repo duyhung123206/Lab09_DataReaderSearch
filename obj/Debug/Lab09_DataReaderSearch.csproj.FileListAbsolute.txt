@@ -1,0 +1,11 @@
+C:\nguyenduyhung\Lab09_DataReaderSearch\Lab09_DataReaderSearch\obj\Debug\Lab09_DataReaderSearch.csproj.AssemblyReference.cache
+C:\nguyenduyhung\Lab09_DataReaderSearch\Lab09_DataReaderSearch\obj\Debug\Lab09_DataReaderSearch.Properties.Resources.resources
+C:\nguyenduyhung\Lab09_DataReaderSearch\Lab09_DataReaderSearch\obj\Debug\Lab09_DataReaderSearch.csproj.GenerateResource.cache
+C:\nguyenduyhung\Lab09_DataReaderSearch\Lab09_DataReaderSearch\obj\Debug\Lab09_DataReaderSearch.csproj.CoreCompileInputs.cache
+C:\nguyenduyhung\Lab09_DataReaderSearch\Lab09_DataReaderSearch\bin\Debug\Lab09_DataReaderSearch.exe.config
+C:\nguyenduyhung\Lab09_DataReaderSearch\Lab09_DataReaderSearch\bin\Debug\Lab09_DataReaderSearch.exe
+C:\nguyenduyhung\Lab09_DataReaderSearch\Lab09_DataReaderSearch\bin\Debug\Lab09_DataReaderSearch.pdb
+C:\nguyenduyhung\Lab09_DataReaderSearch\Lab09_DataReaderSearch\obj\Debug\Lab09_DataReaderSearch.Form1.resources
+C:\nguyenduyhung\Lab09_DataReaderSearch\Lab09_DataReaderSearch\obj\Debug\Lab09_DataReaderSearch.exe
+C:\nguyenduyhung\Lab09_DataReaderSearch\Lab09_DataReaderSearch\obj\Debug\Lab09_DataReaderSearch.pdb
+C:\nguyenduyhung\Lab09_DataReaderSearch\Lab09_DataReaderSearch\obj\Debug\Lab09_DataReaderSearch.exe.config
