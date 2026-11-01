@@ -49,6 +49,9 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.btnSort = new System.Windows.Forms.Button();
+            this.txtMinAge = new System.Windows.Forms.TextBox();
+            this.txtMaxAge = new System.Windows.Forms.TextBox();
+            this.btnFilterAge = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -249,11 +252,40 @@
             this.btnSort.UseVisualStyleBackColor = true;
             this.btnSort.Click += new System.EventHandler(this.btnSort_Click);
             // 
+            // txtMinAge
+            // 
+            this.txtMinAge.Location = new System.Drawing.Point(584, 213);
+            this.txtMinAge.Name = "txtMinAge";
+            this.txtMinAge.Size = new System.Drawing.Size(100, 22);
+            this.txtMinAge.TabIndex = 21;
+            this.txtMinAge.TextChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
+            // 
+            // txtMaxAge
+            // 
+            this.txtMaxAge.Location = new System.Drawing.Point(584, 262);
+            this.txtMaxAge.Name = "txtMaxAge";
+            this.txtMaxAge.Size = new System.Drawing.Size(100, 22);
+            this.txtMaxAge.TabIndex = 22;
+            this.txtMaxAge.TextChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
+            // 
+            // btnFilterAge
+            // 
+            this.btnFilterAge.Location = new System.Drawing.Point(584, 307);
+            this.btnFilterAge.Name = "btnFilterAge";
+            this.btnFilterAge.Size = new System.Drawing.Size(75, 23);
+            this.btnFilterAge.TabIndex = 23;
+            this.btnFilterAge.Text = "Lọc tuổi";
+            this.btnFilterAge.UseVisualStyleBackColor = true;
+            this.btnFilterAge.TextChanged += new System.EventHandler(this.btnFilterAge_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1322, 624);
+            this.Controls.Add(this.btnFilterAge);
+            this.Controls.Add(this.txtMaxAge);
+            this.Controls.Add(this.txtMinAge);
             this.Controls.Add(this.btnSort);
             this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.comboBox1);
@@ -307,6 +339,9 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.Button btnSort;
+        private System.Windows.Forms.TextBox txtMinAge;
+        private System.Windows.Forms.TextBox txtMaxAge;
+        private System.Windows.Forms.Button btnFilterAge;
     }
 }
 

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Data;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Lab09_DataReaderSearch
 {
@@ -21,7 +20,7 @@ namespace Lab09_DataReaderSearch
             // Khởi tạo danh sách các Khoa mẫu cho ComboBox Khoa
             LoadDepartmentsToComboBox();
 
-            // Khởi tạo danh sách cột cho ComboBox sắp xếp (comboBox1)
+            // Khởi tạo danh sách cột cho ComboBox sắp xếp
             LoadSortColumnsToComboBox();
         }
 
@@ -46,7 +45,7 @@ namespace Lab09_DataReaderSearch
             table.Columns.Add("DiemTB", typeof(double));
             table.Columns.Add("Email", typeof(string));
 
-            // Thêm dữ liệu mẫu
+            // Thêm dữ liệu mẫu (Năm sinh 2006 -> Tuổi hiện tại tính đến 2026 là 20 tuổi)
             table.Rows.Add("24001296", "Nguyễn Duy Hưng", "2006-01-01", "Nam", "Công nghệ Thông tin", 8.5, "nguyenduyhung@gmail.com");
             table.Rows.Add("24001297", "Nguyễn Văn Hiếu", "2006-05-12", "Nam", "Công nghệ Thông tin", 8.0, "hieu@gmail.com");
             table.Rows.Add("24001298", "Trần Văn An", "2006-03-20", "Nam", "Điện tử Viễn thông", 6.5, "an@gmail.com");
@@ -69,7 +68,7 @@ namespace Lab09_DataReaderSearch
             }
         }
 
-        // Đổ danh sách cột hợp lệ vào ComboBox sắp xếp (comboBox1)
+        // Đổ danh sách cột hợp lệ vào ComboBox sắp xếp
         private void LoadSortColumnsToComboBox()
         {
             if (comboBox1 != null)
@@ -139,6 +138,34 @@ namespace Lab09_DataReaderSearch
             return dv.ToTable();
         }
 
+        // 8. Hàm lọc danh sách sinh viên theo khoảng tuổi (xử lý ngày sinh chính xác)
+        private DataTable FilterByAge(int minAge, int maxAge)
+        {
+            DataTable table = GetSampleDataTable();
+            DataTable resultTable = table.Clone(); // Sao chép cấu trúc bảng
+
+            int currentYear = DateTime.Now.Year; // Lấy năm hiện tại
+
+            foreach (DataRow row in table.Rows)
+            {
+                if (row["NgaySinh"] != DBNull.Value)
+                {
+                    // Chuyển đổi ngày sinh sang kiểu DateTime để lấy năm sinh chính xác
+                    if (DateTime.TryParse(row["NgaySinh"].ToString(), out DateTime dob))
+                    {
+                        int age = currentYear - dob.Year; // Tính tuổi
+
+                        if (age >= minAge && age <= maxAge)
+                        {
+                            resultTable.ImportRow(row);
+                        }
+                    }
+                }
+            }
+
+            return resultTable;
+        }
+
         // 4. Hàm phân trang dữ liệu (Mô phỏng OFFSET-FETCH)
         private DataTable GetPagedStudents(int pageIndex)
         {
@@ -201,6 +228,20 @@ namespace Lab09_DataReaderSearch
 
             DataTable dtSorted = SortStudentData(column, isAscending);
             dataGridView1.DataSource = dtSorted;
+        }
+
+        // Sự kiện nút Lọc theo tuổi (nếu bạn có tạo nút riêng cho phần 8)
+        private void btnFilterAge_Click(object sender, EventArgs e)
+        {
+            int minAge = 18;
+            int maxAge = 25;
+
+            // Nếu bạn có ô TextBox nhập tuổi (ví dụ: txtMinAge, txtMaxAge), có thể bật các dòng này:
+            // int.TryParse(txtMinAge?.Text, out minAge);
+            // int.TryParse(txtMaxAge?.Text, out maxAge);
+
+            DataTable dtResult = FilterByAge(minAge, maxAge);
+            dataGridView1.DataSource = dtResult;
         }
 
         // Sự kiện nút Trước (Previous Page)
