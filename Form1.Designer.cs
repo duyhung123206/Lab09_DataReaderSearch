@@ -39,6 +39,11 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.cbKhoa = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtMinScore = new System.Windows.Forms.TextBox();
+            this.txtMaxScore = new System.Windows.Forms.TextBox();
+            this.btnFilter = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -120,7 +125,7 @@
             this.btnSearch.TabIndex = 8;
             this.btnSearch.Text = "button1";
             this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.button1_Click);
+            this.btnSearch.Click += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
             // label4
             // 
@@ -140,11 +145,63 @@
             this.label5.TabIndex = 10;
             this.label5.Text = "Tìm kiếm";
             // 
+            // cbKhoa
+            // 
+            this.cbKhoa.FormattingEnabled = true;
+            this.cbKhoa.Location = new System.Drawing.Point(584, 142);
+            this.cbKhoa.Name = "cbKhoa";
+            this.cbKhoa.Size = new System.Drawing.Size(191, 24);
+            this.cbKhoa.TabIndex = 11;
+            this.cbKhoa.SelectedIndexChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(424, 149);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(38, 16);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "Khoa";
+            // 
+            // txtMinScore
+            // 
+            this.txtMinScore.Location = new System.Drawing.Point(977, 34);
+            this.txtMinScore.Name = "txtMinScore";
+            this.txtMinScore.Size = new System.Drawing.Size(100, 22);
+            this.txtMinScore.TabIndex = 13;
+            this.txtMinScore.Click += new System.EventHandler(this.dataGridView1_SelectionChanged);
+            this.txtMinScore.TextChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
+            // 
+            // txtMaxScore
+            // 
+            this.txtMaxScore.Location = new System.Drawing.Point(977, 87);
+            this.txtMaxScore.Name = "txtMaxScore";
+            this.txtMaxScore.Size = new System.Drawing.Size(100, 22);
+            this.txtMaxScore.TabIndex = 14;
+            this.txtMaxScore.Click += new System.EventHandler(this.dataGridView1_SelectionChanged);
+            this.txtMaxScore.TextChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
+            // 
+            // btnFilter
+            // 
+            this.btnFilter.Location = new System.Drawing.Point(977, 144);
+            this.btnFilter.Name = "btnFilter";
+            this.btnFilter.Size = new System.Drawing.Size(75, 23);
+            this.btnFilter.TabIndex = 15;
+            this.btnFilter.Text = "Lọc";
+            this.btnFilter.UseVisualStyleBackColor = true;
+            this.btnFilter.TextChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
+            this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1322, 450);
+            this.Controls.Add(this.btnFilter);
+            this.Controls.Add(this.txtMaxScore);
+            this.Controls.Add(this.txtMinScore);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.cbKhoa);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnSearch);
@@ -178,6 +235,11 @@
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox cbKhoa;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtMinScore;
+        private System.Windows.Forms.TextBox txtMaxScore;
+        private System.Windows.Forms.Button btnFilter;
     }
 }
 
