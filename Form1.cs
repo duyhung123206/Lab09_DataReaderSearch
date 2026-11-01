@@ -145,7 +145,7 @@ namespace Lab09_DataReaderSearch
             dataGridView1.DataSource = dtResult;
         }
 
-        // Sự kiện nút Trước (Previous Page)[cite: 16]
+        // Sự kiện nút Trước (Previous Page)
         private void btnPrevious_Click(object sender, EventArgs e)
         {
             if (currentPage > 1)
@@ -155,24 +155,24 @@ namespace Lab09_DataReaderSearch
             }
         }
 
-        // Sự kiện nút Sau (Next Page)[cite: 16]
+        // Sự kiện nút Sau (Next Page)
         private void btnNext_Click(object sender, EventArgs e)
         {
             currentPage++;
             LoadDataWithPagination();
         }
 
-        // 5. Sự kiện đồng bộ dòng chọn trên DataGridView với các ô TextBox thông tin chi tiết
+        // 5. Sự kiện hiển thị chi tiết dòng được chọn chuẩn theo bài Lab
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
-            if (dataGridView1.CurrentRow != null && !dataGridView1.CurrentRow.IsNewRow)
-            {
-                DataGridViewRow row = dataGridView1.CurrentRow;
+            if (dataGridView1.CurrentRow == null || dataGridView1.CurrentRow.IsNewRow) return;
 
-                txtMaSV.Text = row.Cells["MaSV"].Value?.ToString() ?? "";
-                txtHoTen.Text = row.Cells["HoTen"].Value?.ToString() ?? "";
-                txtEmail.Text = row.Cells["Email"].Value?.ToString() ?? "";
-            }
+            DataGridViewRow row = dataGridView1.CurrentRow;
+
+            // Đưa dữ liệu từ các cột lên các control chi tiết tương ứng
+            txtMaSV.Text = Convert.ToString(row.Cells["MaSV"].Value);
+            txtHoTen.Text = Convert.ToString(row.Cells["HoTen"].Value);
+            txtEmail.Text = Convert.ToString(row.Cells["Email"].Value);
         }
     }
 }
