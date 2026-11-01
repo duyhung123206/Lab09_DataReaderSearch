@@ -35,6 +35,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.txtSearchKeyword = new System.Windows.Forms.TextBox();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -100,11 +104,51 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "Email";
             // 
+            // txtSearchKeyword
+            // 
+            this.txtSearchKeyword.Location = new System.Drawing.Point(584, 40);
+            this.txtSearchKeyword.Name = "txtSearchKeyword";
+            this.txtSearchKeyword.Size = new System.Drawing.Size(191, 22);
+            this.txtSearchKeyword.TabIndex = 7;
+            this.txtSearchKeyword.TextChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(584, 89);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(191, 23);
+            this.btnSearch.TabIndex = 8;
+            this.btnSearch.Text = "button1";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(421, 46);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(138, 16);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Nhập từ khóa tìm kiếm";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(421, 96);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(62, 16);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Tìm kiếm";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.btnSearch);
+            this.Controls.Add(this.txtSearchKeyword);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -130,6 +174,10 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtSearchKeyword;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
     }
 }
 
