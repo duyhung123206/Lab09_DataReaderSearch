@@ -8,7 +8,7 @@ namespace Lab09_DataReaderSearch
     {
         // Khai báo biến toàn cục quản lý phân trang
         private int currentPage = 1;
-        private int pageSize = 10; // Mỗi trang hiển thị 10 sinh viên[cite: 16]
+        private int pageSize = 10; // Mỗi trang hiển thị 10 sinh viên
 
         public Form1()
         {
@@ -65,7 +65,7 @@ namespace Lab09_DataReaderSearch
             }
         }
 
-        // 2. Hàm tìm kiếm gần đúng theo họ tên[cite: 13]
+        // 2. Hàm tìm kiếm gần đúng theo họ tên
         private DataTable SearchByName(string keyword)
         {
             DataTable table = GetSampleDataTable();
@@ -90,6 +90,38 @@ namespace Lab09_DataReaderSearch
             if (!string.IsNullOrEmpty(tenKhoa) && tenKhoa != "Tất cả")
             {
                 filterExpression += $" AND TenKhoa = '{tenKhoa}'";
+            }
+
+            dv.RowFilter = filterExpression;
+            return dv.ToTable();
+        }
+
+        // 6. Hàm tìm kiếm đa tiêu chí (kết hợp mã, họ tên, khoa, giới tính, khoảng điểm; cho phép bỏ trống)
+        private DataTable MultiCriteriaSearch(string maSV, string hoTen, string tenKhoa, string gioiTinh, double minScore, double maxScore)
+        {
+            DataTable table = GetSampleDataTable();
+            DataView dv = table.DefaultView;
+
+            string filterExpression = $"DiemTB >= {minScore} AND DiemTB <= {maxScore}";
+
+            if (!string.IsNullOrEmpty(maSV))
+            {
+                filterExpression += $" AND MaSV LIKE '%{maSV.Trim()}%'";
+            }
+
+            if (!string.IsNullOrEmpty(hoTen))
+            {
+                filterExpression += $" AND HoTen LIKE '%{hoTen.Trim()}%'";
+            }
+
+            if (!string.IsNullOrEmpty(tenKhoa) && tenKhoa != "Tất cả")
+            {
+                filterExpression += $" AND TenKhoa = '{tenKhoa}'";
+            }
+
+            if (!string.IsNullOrEmpty(gioiTinh) && gioiTinh != "Tất cả")
+            {
+                filterExpression += $" AND GioiTinh = '{gioiTinh}'";
             }
 
             dv.RowFilter = filterExpression;
